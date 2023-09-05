@@ -1,0 +1,78 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+            "path" : "pages/home/home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/cart/cart",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        
+        ,{
+            "path" : "pages/user/user",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/cate/cate",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "享易",
+		"navigationBarBackgroundColor": "#7df8b7",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"list":[
+			{
+				"pagePath":"pages/home/home",
+				"text":"首页",
+				"iconPath":"",
+				"selectedIconPath":""
+			},
+			{
+				"pagePath":"pages/cate/cate",
+				"text":"回收市场",
+				"iconPath":"",
+				"selectedIconPath":""
+			},
+			{
+				"pagePath":"pages/cart/cart",
+				"text":"回收订单",
+				"iconPath":"",
+				"selectedIconPath":""
+			},
+			{
+				"pagePath":"pages/user/user",
+				"text":"个人中心",
+				"iconPath":"",
+				"selectedIconPath":""
+			}
+			
+			
+		]
+	}
+}
