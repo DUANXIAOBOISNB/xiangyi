@@ -43,7 +43,16 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "享易",
 		"navigationBarBackgroundColor": "#7df8b7",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+		  "van-button": "/wxcomponents/vant/button/index",
+		  "van-grid": "/wxcomponents/vant/grid/index",
+		  "van-grid-item": "/wxcomponents/vant/grid-item/index",
+		  "van-index-bar": "/wxcomponents/vant/index-bar/index",
+		  "van-index-anchor": "/wxcomponents/vant/index-anchor/index",
+		  "van-image":"/wxcomponents/vant/image/index",
+		  "van-address-edit":"/wxcomponents/vant/address-edit/index"
+		}
 	},
 	"tabBar":{
 		"list":[
@@ -75,4 +84,7 @@
 			
 		]
 	}
+	
+	
+	
 }
