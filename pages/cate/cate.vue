@@ -1,6 +1,6 @@
 <template>
 	<view>
-		回收市场
+		cart
 	</view>
 </template>
 

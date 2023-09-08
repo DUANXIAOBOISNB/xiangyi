@@ -1,9 +1,9 @@
 import App from './App'
-
+import store from './store/store.js'
 import { $http } from '@escook/request-miniprogram'
 // #ifndef VUE3
 import Vue from 'vue'
-import { AddressEdit } from '"@vant/weapp';
+
 
 Vue.config.productionTip = false
 App.mpType = 'app'
@@ -28,7 +28,8 @@ $http.afterRequest = function () {
   uni.hideLoading()
 }
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()
 // #endif

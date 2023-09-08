@@ -15,4 +15,7 @@
 <style>
 	/*每个页面公共css */
 	  @import "/wxcomponents/vant/common/index.wxss";
+	/*  @import "colorui/main.css";
+	  @import "colorui/icon.css";
+	  @import "colorui/animation.css"; */
 </style>

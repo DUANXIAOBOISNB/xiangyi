@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="mine">
 		<view class="user-head" >
 			
 			
@@ -25,7 +25,7 @@
 					<text style="">查看全部></text>
 				</view>
 				<van-grid :border="false" >
-				  <van-grid-item icon="photo-o" text="待付款" />
+				  <van-grid-item icon="photo-o" text="待付款" @click="toorder(2)"/>
 				  <van-grid-item icon="photo-o" text="代发货" />
 				  <van-grid-item icon="photo-o" text="待收货" />
 				  <van-grid-item icon="photo-o" text="售后" />
@@ -60,7 +60,9 @@
 					
 				</view>
 				<van-grid :border="false">
+				  <navigator url="/subpack/addressmodel/addressmodel">
 				  <van-grid-item icon="photo-o" text="地址信息" />
+				  </navigator>
 				  <van-grid-item icon="photo-o" text="我的收藏" />
 				  <van-grid-item icon="photo-o" text="足迹" />
 				  <van-grid-item icon="photo-o" text="优惠券" />
@@ -91,7 +93,15 @@
 			},
 			orderAll()
 			{
-				console.log("sef")
+				uni.navigateTo({
+					url:'/subpack/ordermodel/ordermodel'
+				})
+			},
+			toorder(num)
+			{
+				uni.navigateTo({
+					url:'/subpack/ordermodel/ordermodel?actived='+num
+				})
 			}
 		}
 	}
@@ -146,7 +156,17 @@
 }
 .myservice
 {
+	margin-top: 10px;
 	height: 100%;
-	width: 80%;
+	width: 90%;
+	background: white;
+	border-radius: 8px;
+}
+.mine
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #f0f0f0;
 }
 </style>

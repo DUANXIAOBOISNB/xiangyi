@@ -4,7 +4,7 @@
             "path" : "pages/home/home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "首页",
                 "enablePullDownRefresh": false
             }
             
@@ -13,7 +13,7 @@
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的商品",
                 "enablePullDownRefresh": false
             }
             
@@ -24,7 +24,7 @@
             "path" : "pages/user/user",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "个人中心",
                 "enablePullDownRefresh": false
             }
             
@@ -33,12 +33,77 @@
             "path" : "pages/cate/cate",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "分类回收",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+       
+        ,{
+            "path" : "pages/issue/issue",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发布",
                 "enablePullDownRefresh": false
             }
             
         }
     ],
+	"subPackages":[
+		{
+			"root":"subpack",
+			"pages":[
+				{
+                    "path" : "ordermodel/ordermodel",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "订单服务",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "searchmodel/searchmodel",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "查看物品",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+					           
+				
+                ,{
+                    "path" : "usermodel/usermodel",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+				,{
+				    "path" : "addressmodel/addressmodel",
+				    "style" :                                                                                    
+				{
+				    "navigationBarTitleText": "地址管理",
+				    "enablePullDownRefresh": false
+				}
+				
+				}
+                ,{
+                    "path" : "collect/collect",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		}
+	],
+	
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "享易",
@@ -51,7 +116,25 @@
 		  "van-index-bar": "/wxcomponents/vant/index-bar/index",
 		  "van-index-anchor": "/wxcomponents/vant/index-anchor/index",
 		  "van-image":"/wxcomponents/vant/image/index",
-		  "van-address-edit":"/wxcomponents/vant/address-edit/index"
+		  "van-cell":"/wxcomponents/vant/cell/index",
+		 "van-icon":"/wxcomponents/vant/icon/index",
+		 "van-cell-group":"/wxcomponents/vant/cell-group/index",
+		 "van-field":"/wxcomponents/vant/field/index",
+		 "van-popup":"/wxcomponents/vant/popup/index",
+		 "van-tabs":"/wxcomponents/vant/tabs/index",
+		 "van-tab":"/wxcomponents/vant/tab/index",
+		 "van-empty":"/wxcomponents/vant/empty/index",
+		 "van-card":"/wxcomponents/vant/card/index",
+		 "van-tag":"/wxcomponents/vant/tag/index",
+		 "van-notice-bar":"/wxcomponents/vant/notice-bar/index",
+		 "van-uploader":"/wxcomponents/vant/uploader/index",
+		 "van-row":"/wxcomponents/vant/row/index",
+		 "van-col":"/wxcomponents/vant/col/index",
+		 "van-radio-group":"/wxcomponents/vant/radio-group/index",
+		 "van-radio":"/wxcomponents/vant/radio/index"
+		 
+		 
+		 
 		}
 	},
 	"tabBar":{
@@ -59,26 +142,33 @@
 			{
 				"pagePath":"pages/home/home",
 				"text":"首页",
-				"iconPath":"",
-				"selectedIconPath":""
+				"iconPath":"/static/icons/tabbar/home.png",
+				"selectedIconPath":"/static/icons/tabbar/homec.png"
 			},
 			{
 				"pagePath":"pages/cate/cate",
 				"text":"回收市场",
-				"iconPath":"",
-				"selectedIconPath":""
+				"iconPath":"/static/icons/tabbar/cate.png",
+				"selectedIconPath":"/static/icons/tabbar/catec.png"
 			},
+			{
+				"pagePath":"pages/issue/issue",
+				"text":"发布",
+				"iconPath":"/static/icons/tabbar/my.png",
+				"selectedIconPath":"/static/icons/tabbar/myc.png"
+			}
+			,
 			{
 				"pagePath":"pages/cart/cart",
 				"text":"回收订单",
-				"iconPath":"",
-				"selectedIconPath":""
+				"iconPath":"/static/icons/tabbar/cart.png",
+				"selectedIconPath":"/static/icons/tabbar/cartc.png"
 			},
 			{
 				"pagePath":"pages/user/user",
 				"text":"个人中心",
-				"iconPath":"",
-				"selectedIconPath":""
+				"iconPath":"/static/icons/tabbar/my.png",
+				"selectedIconPath":"/static/icons/tabbar/myc.png"
 			}
 			
 			
