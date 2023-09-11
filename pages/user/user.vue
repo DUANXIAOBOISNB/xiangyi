@@ -52,7 +52,7 @@
 						</navigator>
 					</swiper-item>
 				</swiper>
-							
+					
 			</view>
 			<view class="myservice">
 				<view style="margin: 5px;" @click="orderAll">
@@ -73,23 +73,51 @@
 			</view>
 				
 		</view>
-		
+		<!-- 弹出登录确认框 -->
+		<van-dialodrg id="van-dialog" />
 	</view>
 </template>
 
 <script>
+	import {mapState,mapMutations,mapGetters} from 'vuex';
+	import Dialog from 'wxcomponents/vant/dialog/dialog';
 	export default {
 		data() {
 			return {
 				
 			}
 		},
+		computed:{
+			...mapState('m_login',['loginstatus']),
+			
+		},
+		 onLoad()
+		{
+		
+		},
 		methods: {
 			usermodel()
 			{
-				uni.navigateTo({
+				console.log(this.loginstatus)
+				if(!this.loginstatus)
+				{
+					Dialog.alert({
+					  
+					  message: '当前未登录，请先登陆',
+					}).then(() => {
+					  // on close
+					 uni.navigateTo({
+					 	url:'/subpack/loginmodel/loginmodel'
+					 })
+					});
+
+				}
+				else{
+					uni.navigateTo({
 					url:'/subpack/usermodel/usermodel'
 				})
+				}
+				
 			},
 			orderAll()
 			{

@@ -3,7 +3,7 @@ import store from './store/store.js'
 import { $http } from '@escook/request-miniprogram'
 // #ifndef VUE3
 import Vue from 'vue'
-
+Vue.prototype.$imgUrl = 'https://file-resource-1312729391.cos.ap-guangzhou.myqcloud.com/'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
@@ -38,6 +38,7 @@ app.$mount()
 import { createSSRApp } from 'vue'
 export function createApp() {
   const app = createSSRApp(App)
+    app.config.globalProperties.$imgUrl = 'https://file-resource-1312729391.cos.ap-guangzhou.myqcloud.com/'
   return {
     app
   }

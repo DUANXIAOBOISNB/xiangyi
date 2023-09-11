@@ -48,6 +48,7 @@
             }
             
         }
+       
     ],
 	"subPackages":[
 		{
@@ -100,6 +101,33 @@
                 }
                 
                 }
+                ,{
+                    "path" : "loginmodel/loginmodel",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "register/register",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "goodsdetail/goodsdetail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
@@ -131,7 +159,10 @@
 		 "van-row":"/wxcomponents/vant/row/index",
 		 "van-col":"/wxcomponents/vant/col/index",
 		 "van-radio-group":"/wxcomponents/vant/radio-group/index",
-		 "van-radio":"/wxcomponents/vant/radio/index"
+		 "van-radio":"/wxcomponents/vant/radio/index",
+		 "van-dialodrg":"/wxcomponents/vant/dialog/index",
+		 "van-sticky":"/wxcomponents/vant/sticky/index"
+		
 		 
 		 
 		 
@@ -147,7 +178,7 @@
 			},
 			{
 				"pagePath":"pages/cate/cate",
-				"text":"回收市场",
+				"text":"分类",
 				"iconPath":"/static/icons/tabbar/cate.png",
 				"selectedIconPath":"/static/icons/tabbar/catec.png"
 			},

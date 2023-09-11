@@ -1,6 +1,6 @@
 <template>
 	<view>
-		sadf
+		search
 	</view>
 </template>
 

@@ -1,94 +1,139 @@
 <template>
-	<view class="ii">
-		<van-cell is-link @click="showPopup">展示弹出层</van-cell>
-		<van-popup :show="show" @close="show=false"  overlay="true" round position="bottom" :style="{ height: '30%' }" get-container="getContainer">
-			<div>sdfsdf</div>
-			<div>sdfsdf</div>
-			<div>sdfsdf</div>
-			<div>sdfsdf</div>
+	<view class="page-container">
+	<van-sticky>
+		<my-search @click="gotosearch"></my-search>
+	</van-sticky>
 		
-		</van-popup>		
-   <van-button @click.native="dd">ert</van-button>
-	<button @click="chooseImage">选择图片</button>
-	  <image :src="imageUrl" />
-
-
-	</view>
+		<banner />
+		
+			<!-- 标签栏右侧额外内容 -->
+			
+				<view class="extra-wrapper">
+					
+					 <text>发现</text>
+				</view>
+			
 	
+		<goods-list :activeIndex="activeIndex" />
+	</view>
 </template>
 
 <script>
-	// import { createApp } from 'vue';
-	// import { Col, Row } from 'vant';
-	
-	// const app = createApp();
-	// app.use(Col);
-	// app.use(Row);
- 	
-
+	 import {mapState,mapMutations,mapGetters} from 'vuex'
+	import banner from '@/components/home/banner'
+	import goodsList from '@/components/home/goods-list.vue'
+  
 	export default {
-		data() {
+		data()
+		{
 			return {
-				imageUrl:'',
-				show:false
-			};
+				
+			}
+		},
+		// shared:表示页面 wxss 样式将影响到自定义组件
+		options: {
+			styleIsolation: 'shared'
 		},
 		
-		methods:
-		{
-		showPopup()
-		{
-			console.log("jit")
-			this.show=true;
-			console.log(this.show)
+		
+		components: {
+			banner,
+			goodsList
 		},
-		getContainer()
+		onLoad()
 		{
-			 return document.querySelector('.ii');
+			console.log('user'+this.loginstatus);
 		},
-			async dd()
-			{ 
- 
-				const {data:res}= await uni.$http.get(uni.$http.baseURL+'demo')
-				console.log(res)
-				  
-			},
-			chooseImage()
-			{
-				wx.chooseImage({
-				      count: 1, // 可选择的图片数量
-				      sizeType: ['compressed'], // 压缩图片
-				      sourceType: ['album', 'camera'], // 来源：相册或相机
-				      success:  (res)=> {
-				        // 将选择的图片上传到服务器
-				        this.uploadImage(res.tempFilePaths[0]);
-				      }
-				    })
-				
-				
-			},
-			 uploadImage(imagePath) {
-			    wx.uploadFile({
-			      url: 'http://127.0.0.1:8025/upload', // 上传图片的接口地址
-			      filePath: imagePath, // 图片文件路径
-			      name: 'image', // 文件对应的 key , 开发者在服务器端通过这个 key 可以获取到文件二进制内容
-			      success: (res) => {
-					  this.imageUrl=res.data
-			        // 上传成功后，将服务器返回的图片地址更新到image标签中
-			        // this.setData({
-			        //   imageUrl: res.data
-			        // });
-			      },
-			      fail: function (res) {
-			        console.log(res);
-			      }
-			    })
-			
+		data() {
+			return {
+				tabs: ['618返场', '颜值水杯', '家居日用', '冲调零食'],
+				//tabs:['618返场', '颜值水杯', '家居日用', '冲调零食', '生鲜水果', '鞋子服饰', '钻石珠宝', '生活用品'],
+				activeIndex: 0, // 标签页当前选择项的下标
+				// 标签页滚动吸顶相关
+				offsetTop: 0, //粘性定位布局下与顶部的最小距离
+				navHeight: 0, //顶部导航高度
+				isFixed: false, //标签栏是否滚动吸顶
 			}
+		},
+		computed: {
+			...mapState('m_login',['loginstatus']),
+			// 固定的标签页的标签栏样式
+			wrapStyle() {
+				return {
+					// 吸顶时给定一个等于导航高度的paddingTop值，用于遮住透明的导航+状态栏区域
+					paddingTop: this.isFixed ? this.navHeight + 'px' : 0,
+					// 吸顶时背景色为白色，否则为灰色
+					background: this.isFixed ? "#FFF" : "#F5F5F5"
+				}
+			},
+		},
+		mounted() {
+			this.getNavHeight() // 获取导航高度
+		},
+		// 页面滚动触发事件
+		onPageScroll(e) {
+			//页面滚动事件
+			uni.$emit('onPageScroll', e)
+		},
+		methods: {
+			gotosearch()
+			{
+				uni.navigateTo({
+					url:'/subpack/searchmodel/searchmodel'
+				})
+			},
+			// 获取导航高度
+			getNavHeight() {
+				let statusBarH = 0,
+					navBarH = 0
+				// 获取状态栏的高度+导航栏的高度
+				
+				// #ifdef MP-WEIXIN || APP-PLUS ||  MP-BAIDU
+				// 微信小程序、APP获取状态栏高度 
+				statusBarH = uni.getSystemInfoSync().statusBarHeight
+				// #endif
+
+				// #ifdef MP-WEIXIN || MP-QQ || MP-BAIDU
+				// 微信小程序获取胶囊位置信息
+				const menuBtnInfo = uni.getMenuButtonBoundingClientRect()
+				//navHeight的值为状态栏的高度+导航栏的高度
+				if (menuBtnInfo) {
+					//导航栏的高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏内的高度)
+					navBarH = (menuBtnInfo.bottom - statusBarH) +
+						(menuBtnInfo.top - statusBarH)
+				}
+				// #endif
+
+				//状态栏的高度+导航栏的高度
+				this.navHeight = navBarH + statusBarH
+			},
+			// 滚动时触发，仅在 sticky 模式下生效
+			handleScroll(res) {
+				this.isFixed = res.isFixed
+			},
+			touchStart(e) {
+				e.stopPropagation()
+			},
+			fabClick() {
+				uni.navigateBack({
+					delta: 1
+				});
+			},
+			
 		}
 	}
 </script>
+<style lang="less" scoped>
+	.extra-wrapper {
+		padding: 0 12rpx;
+		font-size: 24rpx;
+		height: 80rpx;
+		display: flex;
+		align-items: center;
 
-<style lang="scss">
-
+		.text {
+			display: inline-block;
+			white-space: nowrap;
+		}
+	}
 </style>

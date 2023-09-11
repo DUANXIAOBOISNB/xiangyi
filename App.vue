@@ -14,7 +14,8 @@
 
 <style>
 	/*每个页面公共css */
-	  @import "/wxcomponents/vant/common/index.wxss";
+	  /* @import "/wxcomponents/vant/common/index.wxss"; */
+	  /* @import '/uni_modules/uni-scss/index.scss'; */
 	/*  @import "colorui/main.css";
 	  @import "colorui/icon.css";
 	  @import "colorui/animation.css"; */

@@ -7,10 +7,11 @@
 		</view>
 		</view>
 		<view class="orderall">
+			
 			<van-tabs :active="active" color="#00e1ff" style="width: 100%;">
 				<van-tab title="全部" >
 					<van-empty description="描述文字" v-show="allflag"/>
-					<block v-for="index in 2" :key="index">
+					<block v-for="index in 10" :key="index">
 						<view v-show="!allflag" class="ordercard">
 						<van-cell :border="false" title="单元格" value="内容" />
 						<van-card
@@ -50,6 +51,7 @@
 			  <van-tab title="已完成"><van-empty description="描述文字" />
 				  </van-tab></van-tab>
 			</van-tabs>
+			
 		</view>
 	</view>
 </template>
